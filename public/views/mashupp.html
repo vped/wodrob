@@ -1,0 +1,81 @@
+<html>
+<head>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script src="../../bower_components/raphael/raphael.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/underscore/underscore.js"></script>
+    <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../../bower_components/Raphael.FreeTransform-master/raphael.free_transform.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="../../bower_components/raphael.json/raphael.json.js"></script>
+
+</head>
+<body>
+<div id="editor"></div>
+</body>
+<script>
+    var pathArray;
+    var drawingBox;
+    //    var paper;
+    var paper = Raphael("editor", 500,500);
+    //    paper.canvas.addEventListener('mousedown')
+
+    function initDrawing() {
+
+        var background = paper.rect(10,10,400,400);
+        background.attr("fill", "white");
+        paper.image('../views/img/top.jpg', 100, 100,200,300);
+        background.mousemove(function (event) {
+
+            var x, y;
+            x = event.pageX;
+            y = event.pageY;
+
+
+            // subtract paper coords on page
+            this.ox = x - 10;
+            this.oy = y - 10;
+        });
+
+        var start = function () {
+                    pathArray = new Array();
+                },
+                move = function (dx, dy) {
+                    if (pathArray.length == 0) {
+                        pathArray[0] = ["M",this.ox,this.oy];
+                        drawingBox = paper.path(pathArray);
+                        drawingBox.attr({stroke: "yellow","stroke-dasharray":"--",
+                            "stroke-width": '1.5'});
+                    }
+                    else
+                        pathArray[pathArray.length] =["L",this.ox,this.oy];
+
+                    drawingBox.attr({path: pathArray});
+                },
+                up = function () {
+
+                    console.log(pathArray[0]);
+                    var p=   paper.path( pathArray[0]+_.last(pathArray)).attr({
+                        "type": "path",
+                        "stroke":"yellow",
+                        "stroke-dasharray": "--",
+                        "stroke-width": '1.5'
+                    });
+
+                    console.log(_.last(pathArray));
+                };
+
+        background.drag(move, start, up);
+        console.log(background.drag());
+    }
+
+    window.onload = function ()
+    {
+        var paper =   initDrawing();
+    }
+</script>
+</html>
+
+
+

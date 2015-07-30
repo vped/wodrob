@@ -1,0 +1,14 @@
+{
+  "name": "crop",
+  "homepage": "https://github.com/netplayer/crop",
+  "_release": "a795a16c0b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a795a16c0b93210a9eb8d741d03081057faeaa58"
+  },
+  "_source": "https://github.com/netplayer/crop.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/netplayer/crop.git",
+  "_direct": true
+}

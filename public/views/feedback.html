@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+
+    </head>
+    <body>
+        <div class="modal-content" style="border-radius: 4px" >
+            <div class="modal-header" style="background-color: rgba(50, 62, 52, 0.59);">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="modal-title" style="color: #ffffff">FEEDBACK</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="close" >
+                        <img class="img-rounded" ng-click="cancel()" src="cross.png" style="margin-top: 2px !important;background-color: #ffffff">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body" style="margin-left: 20px">
+                <b style="color: dodgerblue">Let us know what you think!</b>
+                <hr style="margin-bottom: 5px">
+                <p style="color: #000000">If you would like to ask a question, leave us your email address and we'll get back to you.</p>
+                <br>
+                <textarea id="feed" autofocus style="width: 525px;height: 125px;border-radius: 5px" ng-maxlength="300" spellcheck="true" ></textarea>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-cancel" ng-click="cancel()">Cancel</a>
+                <button type="button" class="btn btn-primary"  ng-click="sendFeedback()">Send</button>
+            </div>
+        </div>
+    </body>
+</html>

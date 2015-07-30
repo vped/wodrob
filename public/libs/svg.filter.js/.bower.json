@@ -1,0 +1,14 @@
+{
+  "name": "svg.filter.js",
+  "homepage": "https://github.com/wout/svg.filter.js",
+  "_release": "627de86bf0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "627de86bf0d46a0e8bdc1fea646979b86493fb84"
+  },
+  "_source": "https://github.com/wout/svg.filter.js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/wout/svg.filter.js.git",
+  "_direct": true
+}

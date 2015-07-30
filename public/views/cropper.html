@@ -1,0 +1,55 @@
+
+<!--<html>-->
+<!--<head >-->
+
+    <!--<script src="../../bower_components/angular/angular.min.js"></script>-->
+    <!--<script src="../../bower_components/jquery/dist/jquery.min.js"></script>-->
+    <!--&lt;!&ndash;<script src="../../bower_components/raphael/raphael.js"></script>&ndash;&gt;-->
+    <!--&lt;!&ndash;<script src="../../bower_components/Raphael.FreeTransform-master/raphael.free_transform.js"></script>&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+    <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>-->
+    <!--<script src="../../bower_components/underscore/underscore.js"></script>-->
+    <!--<script src="../../bower_components/crop/crop.js"></script>-->
+    <!--<script src=""></script>-->
+
+    <!--&lt;!&ndash;<script src="../../scripts/controllers/home.js"></script>&ndash;&gt;-->
+    <!--<style>-->
+        <!--canvas { box-shadow: 0 0 10px black; margin: 20px; }​-->
+    <!--</style>-->
+
+<!--</head>-->
+<!--<body>-->
+
+
+<!--<!--<h1>CROPPER</h1>-->-->
+<!--<!--<button type="button" class="btn btn-default" value="" ng-click="rectCrop()">Rectangle</button>-->-->
+<!--<!--<button type="button" class="btn btn-default" ng-click="polyCrop()">Polygon</button>-->-->
+<!--<!--<button type="button" class="btn btn-default" ng-click="undoCrop()">Undo</button>-->-->
+<!--<!--<button type="button" class="btn btn-default" ng-click="cropImage()">Crop</button>-->-->
+<!--<div id="cropper"></div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<script src="../libs/crop/crop.js"></script>-->
+<div>
+    <div id="cropper"></div>
+    <table>
+        <tr>
+            <td>
+                <input type="button" id="crop" value="CROP" />
+                <div id="container">
+                    <canvas width="400" height="475" id="myCanvas" style="position:relative;margin-left:0px;margin-top:0px;"></canvas>
+                </div>
+                <div id="png" style="display:block;">Click on the image sequential points forming the shape to be cropped and click on CROP button.<br/> Refresh to restart.</div>
+
+
+                <div id="oldposx" ></div>
+                <div id="oldposy" ></div>
+                <div id="posx" ></div>
+                <div id="posy" ></div>
+            </td><td>
+            <i>HERE  APPEARS THE UPLOADED IMAGE</i>
+            <div id="myimg"></div><!--preview of image after upload-->
+        </td>
+        </tr>
+    </table>
+</div>

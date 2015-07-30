@@ -1,0 +1,14 @@
+{
+  "name": "Raphael.FreeTransform",
+  "homepage": "https://github.com/AliasIO/Raphael.FreeTransform",
+  "_release": "ebbd42b511",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ebbd42b51120982a8a9b1c4c50a1dea788727b70"
+  },
+  "_source": "https://github.com/AliasIO/Raphael.FreeTransform.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/AliasIO/Raphael.FreeTransform.git",
+  "_direct": true
+}

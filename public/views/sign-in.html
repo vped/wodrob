@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <style type="text/css">
+            input.ng-valid {
+                border-color: green !important;
+                outline-color: green !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 ng-show="sn" class="modal-title">Sign In</h4>
+                <h4 ng-show="sup" class="modal-title">Sign Up</h4>
+            </div>
+            <div class="modal-body" style="margin-left: 20px; margin-right: 20px">
+                <div class="row" ng-show="sn">
+                    <form class="signupId" name="signInForm" novalidate="novalidate">
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email"  class="form-control" ng-model="user.email" name="email" placeholder="Enter email" autofocus required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" ng-minlength="4" ng-model="user.password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <input ng-disabled="signInForm.$invalid" type="submit" value="LOGIN" class="btn btn-primary">
+                        <a href="#" ng-click="forgot()" >Forgot Password</a>
+                    </form>
+                </div>
+                <div class="row" ng-if="sup">
+                    <form name="signupFrm" novalidate="novalidate">
+                        <div class="field">
+                            <div class="form-group">
+                                <input type="text" pattern="[A-Za-z]" ng-class="{ valid: signupFrm.name.$valid }" ng-model="model.name" name='fullname' placeholder="Full Name" class="form-control" required autofocus>
+                                <span style="color: #2aabd2" ng-show=" signupFrm.fullname.$valid ">Nice to meet you!</span>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': signupFrm.email.$dirty && signupFrm.email.$invalid}">
+                                <input type="email" placeholder="Email" name="email" ng-pattern="emailPattern" data-ng-model="model.email" required="required" autocomplete="off" class="form-control"/>
+                                <div ng-show="signupFrm.email.$dirty && signupFrm.email.$invalid || signupFrm.email.$error.pattern">
+                                    <span ng-show="signupFrm.email.$error.pattern && signupFrm.email.$invalid " class="help-block"> should look like an email address</span>
+                                    <span ng-show=" signupFrm.email.$error.required" class="help-block">can't be blank</span>
+                                </div>
+                                <span style="color: #2aabd2" ng-show=" signupFrm.email.$valid " class="">We will send you a welcome message</span>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': signupFrm.password.$dirty && signupFrm.password.$invalid}">
+                                <input type="password" name="password" placeholder="Password" ng-model="model.password" required="required" ng-minlength="4" autocomplete="off" class="form-control"/>
+                                <div ng-show="signupFrm.password.$dirty && signupFrm.password.$invalid">
+                                    <span ng-show="signupFrm.password.$error.required" class="help-block">can't be blank</span>
+                                    <span ng-show="signupFrm.password.$error.minlength" class="help-block"> is too short (min 4 characters)</span>
+                                </div>
+                                <span style="color: #2aabd2" ng-show=" signupFrm.password.$valid ">Thanks. Don't forget it!</span>
+                            </div>
+                            <div class="form-group" ng-class="{'has-error': signupFrm.passwordConfirm.$dirty && signupFrm.passwordConfirm.$invalid && model.passwordConfirm!==model.password }">
+                                <input type="password" name="passwordConfirm" placeholder="Confirm Password"  ng-model="model.passwordConfirm"  ng-match="model.password" required="required" class="form-control"/>
+                                <div ng-show="signupFrm.passwordConfirm.$dirty &&  signupFrm.passwordConfirm.$invalid " >
+                                    <span ng-show="signupFrm.passwordConfirm.$error.required" class="help-block">Can't be blank</span>
+                                    <!--<span ng-if="model.passwordConfirm.length>0" style="color: #a94442" ng-show="msg" class="help-block">Doesn't match</span>-->
+                                    <span ng-show="model.passwordConfirm!==model.password && signupFrm.email.$invalid">password have to match!</span>
+                                </div>
+                            </div>
+                         </div>
+                        <input type="submit" ng-disabled="signupFrm.$invalid " value="Register" class="btn btn-primary"ng-click="details()" >
+                        <a href="#" ng-click="swipe('up')" class="">Sign In</a>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" ng-show="sn" ng-click="swipe('in')" class="btn btn-success">Sign Up</button>
+                <button type="button" class="btn btn-warning" ng-click="cancel()">Close</button>
+            </div>
+        </div>
+    </body>
+</html>

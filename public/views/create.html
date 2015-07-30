@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-7">
+        <div id="editor" style="border: solid"></div>
+        <div style=" background: rgba(0, 0, 9, 0.1); float:left;top: 75px; position: absolute; width: auto; height: auto;
+                margin-top:10px;display:block;
+                margin-left: 25px;border: solid">
+            <input type="submit" value="Undo" class="btn btn-primary" ng-click="undoOperation()"><br>
+            <input type="submit" value="Redo" class="btn btn-primary" ng-click="redoOperation()">
+            <input type="submit" value="New" class="btn btn-primary" ng-click="newCanvas()">
+        </div>
+        <div id="toolBar" ng-if="currentImage!==null" style=" left:80px;top: 5px;background: rgba(0, 4, 9, 0.1); float:left; position: absolute; width: auto; height: auto;
+                    display:block; border: solid">
+            <input type="button" value="Zoom- In" class="btn btn-primary" ng-click="zoomIn()">
+            <input type="button" value="Zoom-Out" class="btn btn-primary" ng-click="zoomOut()">
+            <input type="button" value="back" class="btn btn-primary" ng-click="back()">
+            <input type="button" value="front" class="btn btn-primary" ng-click="front()">
+            <!--<input type="submit" value="clear" class="btn btn-primary" ng-click="clear()">-->
+            <input type="button" value="Flip" class="btn btn-primary" ng-click="flipImage()">
+            <input type="button" value="Flop" class="btn btn-primary" ng-click="flopImage()">
+            <input type="button" value="delete" class="btn btn-primary" ng-click="deleteImage()">
+            <input type="button" value="Clone" class="btn btn-primary" ng-click="cloneImage()">
+            <input type="button" value="crop" class="btn btn-primary" ng-click="cropPop()">
+            <input id="range" max="1.0" min="0" ng-change="setOpacity()" ng-model="$parent.opacity" step="0.01" type="range">Opacity
+        </div>
+    </div>
+
+    <div  style="background-color: #262626;border:solid;height:500px" class="col-md-5">
+        <div  ng-repeat="item in imageArray">
+            <img class="for-image" style="height: 100px; width: 100px" ng-src="/img/{{item.src}}">
+        </div>
+    </div>
+</div>

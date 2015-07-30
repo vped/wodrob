@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/underscore/underscore-min.js"></script>
+    <script src="libs/raphael/raphael-min.js"></script>
+    <script src="libs/Raphael.JSON/raphael.json.js"></script>
+    <script src="libs/Raphael.FreeTransform/raphael.free_transform.js"></script>
+    <script src="libs/svg.js/dist/svg.js"></script>
+    <script src="libs/svg.filter.js/svg.filter.js"></script>
+    <script src="libs/caman/dist/caman.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/controller/home.js"></script>
+    <script src="js/controller/tacto.js"></script>
+    <script src="js/controller/create.js"></script>
+    <script src="js/controller/color_effect.js"></script>
+    <script src="js/controller/sign-in.js"></script>
+    <script src="js/controller/crop.js"></script>
+
+    <script src="js/appRoute.js"></script>
+    <script src="js/app.js"></script>
+    <script src="index.js"></script>
+
+    <title>MEAN</title>
+</head>
+<body ng-app="meanApp" ng-controller="indexController">
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="col-md-8">
+        <ul class="nav nav-pills">
+            <li role="presentation" ><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+            <li role="presentation"><a href="#">Support</a></li>
+            <li role="presentation"><a ng-click="feedback()" href="#">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <ul class="nav nav-pills">
+            <li role="presentation" ><a ng-click="signIn('signin')">Log In</a></li>
+            <li role="presentation"><a ng-click="signIn('signup')">Sign Up</a></li>
+        </ul>
+    </div>
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="row">
+                <div class="col-md-6" style="margin-bottom:30px">
+                    <a class="navbar-brand" href="#/">
+                        <img src="img/WodRob.png" >
+                    </a>
+                </div>
+                <div class="col-md-6" style="margin-top: 15px">
+                    <div class="col-md-3" >
+                        <a class="navbar-brand" href="#/tacto" style="margin-right: 140px">Tacto</a>
+                    </div>
+                    <div class="col-md-5">
+                        <a  class="navbar-brand" href="#/mashupp" >MashUPP</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="navbar-brand" href="#/create" >Create</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="navbar-brand" href="#/color-effect" >color-effect</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="navbar-brand" href="#/crop" >crop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div>
+
+    <!-- ANGULAR DYNAMIC CONTENT -->
+    <div ng-view></div>
+
+</div>
+</body>
+</html>
